@@ -1,0 +1,71 @@
+/* ------------------------------------------ ALL ------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body {
+    height: 100%;
+    /*background-color: #2c2c54;*/
+    background-color: #ffffff;
+}
+
+/* ------------------------------------------ MAIN(principal) ------------------------------------------*/
+main#principal {
+    width: 100%;
+    height: 100vh;
+    display: block;
+    background-image: url(../image/background.jpg);
+    background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+    background-size: cover;
+    
+}
+
+main#principal div {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+main#principal div button {
+    width: 30%;
+    font-size: 3em;
+    border: 3px solid #000000;
+    border-radius: 5px;
+    background-color: rgba(198, 153, 120, 1);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+main#principal div button:hover {
+    transition: all;
+    transition-delay: 100ms;
+    transition-duration: 850ms;
+    transform: scale(1.2,1.2);
+    cursor: pointer;
+}
+
+/* ------------------------------------------ MAIN(game) ------------------------------------------*/
+main#game {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+main#game section {
+    width: 20%;
+    background-color:transparent;
+}
+
+main#game section img {
+   width: 100%;
+}
+
