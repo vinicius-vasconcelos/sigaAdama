@@ -1,26 +1,35 @@
-function __obj() {
+function _obj() {
     return objJogo = [
-        {
-            caminho: '../public/image/king.png',
-            tipo: 'king',
-        },
         {
             caminho: '../public/image/queen.png',
             tipo: 'queen',
         },
         {
             caminho: '../public/image/king.png',
+            tipo: 'king',
+        },
+        {
+            caminho: '../public/image/king.png',
             tipo: 'king2',
         },
-
     ]
 }
 
+function _embaralharCartas(vector) {
+    let pos = Math.floor(Math.random() * 3);
+    let aux = vector[pos];
+    vector[pos] = vector[0];
+    vector[0] = aux;
+
+    return vector;
+}
+
 function sortCards() {
-    let vetCards = __obj().sort();
+    let vetCards = _obj();
+    vetCards = _embaralharCartas(vetCards);
 
     $('img').each(function(key) {
-       $(this).attr('src', vetCards[key].caminho);
+       $(this).attr('src', vetCards[key].caminho, 3000);
     });
 }
 
@@ -28,7 +37,6 @@ function sortCards() {
 $(document).ready(() => {
     //preparando a tela principal do jogo
     $('#game').hide();
-
 
     //renderidando a view do game
     $('#jogar').click(() => {
@@ -41,8 +49,8 @@ $(document).ready(() => {
 
     //click
     $('img').click( function() {
-        $(this).attr('src', '../public/image/queen.png');
-    })
+        $('#card').attr('src', '../public/image/queen.png');
+    });
 });
 
 
