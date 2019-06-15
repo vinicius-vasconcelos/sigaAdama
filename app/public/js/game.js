@@ -31,6 +31,8 @@ function sortCards() {
     $('img').each(function(key) {
        $(this).attr('src', vetCards[key].caminho, 3000);
     });
+
+    return vetCards;
 }
 
 
@@ -44,7 +46,9 @@ $(document).ready(() => {
         $('#game').show();
 
         //sorteando as cartas
-        sortCards();
+        vetCards = sortCards();
+
+       setTimeout(() =>  $('img').attr('src', '../public/image/card.png'), 3000);
     });
 
     //click
