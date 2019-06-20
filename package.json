@@ -1,0 +1,23 @@
+{
+  "name": "sigaadama",
+  "version": "1.0.0",
+  "description": "jogo de cartas siga a dama",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinicius-vasconcelos/sigaAdama.git"
+  },
+  "author": "Vinicius Vasconcelos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vinicius-vasconcelos/sigaAdama/issues"
+  },
+  "homepage": "https://github.com/vinicius-vasconcelos/sigaAdama#readme",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1"
+  }
+}

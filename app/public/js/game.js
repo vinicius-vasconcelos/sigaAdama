@@ -1,21 +1,73 @@
-function _obj() {
-    return objJogo = [
-        {
-            caminho: '../public/image/queen.png',
-            tipo: 'queen',
-        },
-        {
-            caminho: '../public/image/king.png',
-            tipo: 'king',
-        },
-        {
-            caminho: '../public/image/king.png',
-            tipo: 'king2',
-        },
-    ]
+/**
+    *** Arquivo de jogo
+    *** instância classes e faz verificações durante a partida
+*/
+
+import Carta from './Carta.js';
+import Baralho from './Baralho.js';
+
+const vetCards = null;
+
+$(document).ready(() => initGame())
+
+function initGame() {
+
+    //instânciando os obj de Carta e Baralho
+    const cardQueen = new Carta('queen', '../public/image/queen.png');
+    const cardKing = new Carta('king', '../public/image/king.png');
+    const cardKing2 = new Carta('king2', '../public/image/king.png');
+
+    const vetCards = new Baralho();
+
+    vetCards.inserirCarta(cardQueen);
+    vetCards.inserirCarta(cardKing);
+    vetCards.inserirCarta(cardKing2);
+
+    $('#game').hide();
 }
 
+
+$('#jogar').click(() => {
+
+    $('#principal').hide();
+    $('#game').show();
+
+    alert(JSON.stringify(vetCards));
+    //let newVector =  shuffle(vetCards);
+
+   //setTimeout(() =>  $('img').attr('src', '../public/image/card.png'), 3000);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 function _embaralharCartas(vector) {
+
+    
     let pos = Math.floor(Math.random() * 3);
     let aux = vector[pos];
     vector[pos] = vector[0];
@@ -37,24 +89,10 @@ function sortCards() {
 
 
 $(document).ready(() => {
-    //preparando a tela principal do jogo
-    $('#game').hide();
-
-    //renderidando a view do game
-    $('#jogar').click(() => {
-        $('#principal').hide();
-        $('#game').show();
-
-        //sorteando as cartas
-        vetCards = sortCards();
-
-       setTimeout(() =>  $('img').attr('src', '../public/image/card.png'), 3000);
-    });
+    
 
     //click
     $('img').click( function() {
         $('#card').attr('src', '../public/image/queen.png');
     });
-});
-
-
+});*/
