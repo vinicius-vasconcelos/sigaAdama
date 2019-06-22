@@ -6,7 +6,8 @@
 import Carta from './Carta.js';
 import Baralho from './Baralho.js';
 
-const vetCards = null;
+var vetCards = null;
+
 
 $(document).ready(() => initGame())
 
@@ -17,7 +18,7 @@ function initGame() {
     const cardKing = new Carta('king', '../public/image/king.png');
     const cardKing2 = new Carta('king2', '../public/image/king.png');
 
-    const vetCards = new Baralho();
+    vetCards = new Baralho();
 
     vetCards.inserirCarta(cardQueen);
     vetCards.inserirCarta(cardKing);
@@ -26,16 +27,22 @@ function initGame() {
     $('#game').hide();
 }
 
+function shuffle(vector) {
+    let pos = Math.floor(Math.random() * 3);
+    let aux = vector.vetBar[pos];
+    
+    vector.vetBar[pos] = vector.vetBar[0];
+    vector.vetBar[0] = aux;
+    return vector;
+}
 
 $('#jogar').click(() => {
-
     $('#principal').hide();
     $('#game').show();
 
-    alert(JSON.stringify(vetCards));
-    //let newVector =  shuffle(vetCards);
+    shuffle(vetCards)
 
-   //setTimeout(() =>  $('img').attr('src', '../public/image/card.png'), 3000);
+   setTimeout(() =>  $('img').attr('src', '../public/image/card.png'), 3000);
 });
 
 
@@ -65,16 +72,7 @@ $('#jogar').click(() => {
 
 /*
 
-function _embaralharCartas(vector) {
 
-    
-    let pos = Math.floor(Math.random() * 3);
-    let aux = vector[pos];
-    vector[pos] = vector[0];
-    vector[0] = aux;
-
-    return vector;
-}
 
 function sortCards() {
     let vetCards = _obj();
