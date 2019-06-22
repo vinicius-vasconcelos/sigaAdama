@@ -6,91 +6,47 @@
 import Carta from './Carta.js';
 import Baralho from './Baralho.js';
 
-var vetCards = null;
-
+var objCards = null;
 
 $(document).ready(() => initGame())
 
-function initGame() {
-
+async function initGame() {
     //instânciando os obj de Carta e Baralho
-    const cardQueen = new Carta('queen', '../public/image/queen.png');
-    const cardKing = new Carta('king', '../public/image/king.png');
-    const cardKing2 = new Carta('king2', '../public/image/king.png');
+    const cardQueen = new Carta('queen', 'image/queen.png');
+    const cardKing = new Carta('king', 'image/king.png');
+    const cardKing2 = new Carta('king2', 'image/king.png');
 
-    vetCards = new Baralho();
+    objCards = new Baralho();
 
-    vetCards.inserirCarta(cardQueen);
-    vetCards.inserirCarta(cardKing);
-    vetCards.inserirCarta(cardKing2);
+    objCards.inserirCarta(cardQueen);
+    objCards.inserirCarta(cardKing);
+    objCards.inserirCarta(cardKing2);
 
-    $('#game').hide();
+    showCards(await shuffle(objCards));
 }
 
-function shuffle(vector) {
+//função para embaralhar o vetor de cartas
+function shuffle(objBar) {
     let pos = Math.floor(Math.random() * 3);
-    let aux = vector.vetBar[pos];
+    let aux = objBar.vetBar[pos];
     
-    vector.vetBar[pos] = vector.vetBar[0];
-    vector.vetBar[0] = aux;
-    return vector;
+    objBar.vetBar[pos] = objBar.vetBar[0];
+    objBar.vetBar[0] = aux;
+    return objBar;
 }
 
-$('#jogar').click(() => {
-    $('#principal').hide();
-    $('#game').show();
+//função para exibir cartas na tela
+function showCards(objBar) {
+    let imgs = $('img');
 
-    shuffle(vetCards)
-
-   setTimeout(() =>  $('img').attr('src', '../public/image/card.png'), 3000);
-});
-
-
+    for (let i = 0; i < objBar.vetBar.length; i++) {
+        imgs[i*2].src = objBar.vetBar[i].caminho;
+        imgs[i*2+1].src = 'image/card.png';
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-
-function sortCards() {
-    let vetCards = _obj();
-    vetCards = _embaralharCartas(vetCards);
-
-    $('img').each(function(key) {
-       $(this).attr('src', vetCards[key].caminho, 3000);
-    });
-
-    return vetCards;
-}
-
-
-$(document).ready(() => {
     
 
-    //click
-    $('img').click( function() {
-        $('#card').attr('src', '../public/image/queen.png');
-    });
-});*/
+    setTimeout(() =>  $('.card').trigger( "click" ).flip(), 3000);
+}
+$('.card').flip();
