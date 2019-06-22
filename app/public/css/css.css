@@ -40,11 +40,13 @@ main section#principal div {
 main section#principal div button {
     width: 30%;
     font-size: 3em;
+    padding: 16px 24px;
     border: 3px solid #000000;
-    border-radius: 5px;
-    background-color: rgba(198, 153, 120, 1);
+    border-radius: 12px;
+    background-color: #ded7d1;
     text-transform: uppercase;
     font-weight: bold;
+    box-shadow: 1px 1px 15px 2px #000000;
 }
 
 main section#principal div button:hover {
@@ -67,10 +69,12 @@ main section#game {
 .card {
     width: 20%;
     height: 60vh;
-    border-radius: 5px;
+    
 }
 
 img {
    width: 100%;
-   border: 5px solid #000000;
+   border: 2px solid #000000;
+   border-radius: 12px;
+   box-shadow: 1px 1px 15px 2px #000000;
 }
